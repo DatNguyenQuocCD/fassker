@@ -6,7 +6,7 @@ import Input from "../../components/input/input";
 const Signup = ({ navigation }) => {
     return (
         <SafeAreaView style={styles.container}>
-            <ScrollView>
+            <ScrollView showsVerticalScrollIndicator={false}>
                 <Image
                     style={styles.logo}
                     source={require('../../asset/img/Logo.png')}

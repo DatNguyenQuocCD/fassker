@@ -6,33 +6,30 @@ import Favourite from '../screens/Favourite';
 import MyBooking from '../screens/Mybooking';
 import Chat from '../screens/Chat';
 import Setting from '../screens/Setting';
-import Input from '../components/input/input';
+import Icon from 'react-native-vector-icons/Entypo';
+import IconFontisto from 'react-native-vector-icons/Fontisto';
+import Profile from '../screens/Auth/Profile';
 
 const BottomTab = createBottomTabNavigator();
 
 const iconUrl =
-  'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQmrjmWv58Qw-Cjo05ZBK8XWtOU0IDsrHhATg&usqp=CAU';
+  'https://scontent.fdad1-3.fna.fbcdn.net/v/t39.30808-6/285208640_111016871626407_465232664505094497_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=KuQBORBeU8MAX_ss5Xr&_nc_ht=scontent.fdad1-3.fna&oh=00_AfAkJgpATWXMCwQuS0W9hVkx0i6WOVZIKCbCdltgAuYe2A&oe=635FB9C4';
 
 const BottomTabs = () => {
   return (
     <BottomTab.Navigator sceneContainerStyle={{backgroundColor: 'white'}}>
       <BottomTab.Screen
-        name="HomeTab"
+        name="Home Tab"
         component={Home}
         options={() => {
           return {
-            tabBarLabel: ({focused}) => {
-              return (
-                <Text style={{color: focused ? 'red' : 'black'}}>{'Home'}</Text>
-              );
-            },
-            tabBarIcon: ({focused}) => (
-              <Image
-                source={{
-                  uri: iconUrl,
-                }}
-                style={styles.icon}
-              />
+            // tabBarLabel: ({focused}) => {
+            //   return (
+            //     <Text style={{color: focused ? 'red' : 'black'}}>{''}</Text>
+            //   );
+            // },
+            tabBarIcon: ({ focused }) => (
+              <Icon name="home" color="black" size={30}/>
             ),
             headerShown: false,
           };
@@ -40,24 +37,18 @@ const BottomTabs = () => {
       />
 
       <BottomTab.Screen
-        name="FavouriteTab"
+        name="Favourite Tab"
         component={Favourite}
         options={() => {
           return {
-            tabBarLabel: ({focused}) => {
-              return (
-                <Text style={{color: focused ? 'red' : 'black'}}>
-                  {'Favourite'}
-                </Text>
-              );
-            },
+            // tabBarLabel: ({focused}) => {
+            //   return (
+            //     <Text style={{color: focused ? 'red' : 'black'}}>
+            //     </Text>
+            //   );
+            // },
             tabBarIcon: () => (
-              <Image
-                source={{
-                  uri: iconUrl,
-                }}
-                style={styles.icon}
-              />
+              <IconFontisto name="search" color="black" size={25}/>
             ),
             headerShown: false,
           };
@@ -69,20 +60,14 @@ const BottomTabs = () => {
         component={MyBooking}
         options={() => {
           return {
-            tabBarLabel: ({focused}) => {
-              return (
-                <Text style={{color: focused ? 'red' : 'black'}}>
-                  {'Booking'}
-                </Text>
-              );
-            },
+            // tabBarLabel: ({focused}) => {
+            //   return (
+            //     <Text style={{color: focused ? 'red' : 'black'}}>
+            //     </Text>
+            //   );
+            // },
             tabBarIcon: () => (
-              <Image
-                source={{
-                  uri: iconUrl,
-                }}
-                style={styles.icon}
-              />
+              <Icon name="plus" color="black" size={30} />
             ),
             headerShown: false,
           };
@@ -94,18 +79,13 @@ const BottomTabs = () => {
         component={Chat}
         options={() => {
           return {
-            tabBarLabel: ({focused}) => {
-              return (
-                <Text style={{color: focused ? 'red' : 'black'}}>{'Chat'}</Text>
-              );
-            },
+            // tabBarLabel: ({focused}) => {
+            //   return (
+            //     <Text style={{color: focused ? 'red' : 'black'}}>{''}</Text>
+            //   );
+            // },
             tabBarIcon: () => (
-              <Image
-                source={{
-                  uri: iconUrl,
-                }}
-                style={styles.icon}
-              />
+              <Icon name="heart-outlined" color="black" size={30} />
             ),
             headerShown: false,
           };
@@ -114,16 +94,15 @@ const BottomTabs = () => {
 
       <BottomTab.Screen
         name="SettingTab"
-        component={Setting}
+        component={Profile}
         options={() => {
           return {
-            tabBarLabel: ({focused}) => {
-              return (
-                <Text style={{color: focused ? 'red' : 'black'}}>
-                  {'Setting'}
-                </Text>
-              );
-            },
+            // tabBarLabel: ({focused}) => {
+            //   return (
+            //     <Text style={{color: focused ? 'red' : 'black'}}>
+            //     </Text>
+            //   );
+            // },
             tabBarIcon: () => (
               <Image
                 source={{
@@ -143,5 +122,10 @@ const BottomTabs = () => {
 export default BottomTabs;
 
 const styles = StyleSheet.create({
-  icon: {width: 30, height: 30},
+  icon: {
+    width: 30,
+    height: 30,
+    borderRadius: 50,
+  },
+  
 });
