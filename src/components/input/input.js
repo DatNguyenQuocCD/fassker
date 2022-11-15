@@ -3,22 +3,22 @@ import { TextInput, View, Text, StyleSheet } from 'react-native';
 import Icon from 'react-native-vector-icons/Feather';
 
 const Input = (props) => {
-    const [text, setText] = useState("");
     return (
         <View>
             <View style={styles.input}>
                 <TextInput
                     style={styles.textInput}
                     placeholder={props.placeholder}
-                    onChangeText={newText => setText(newText)}
-                    defaultValue={text}
+                    onChangeText={newText => props.setData(newText)}
+                    defaultValue={props.data}
                     returnKeyType="go"
                     autoCorrect={true}
                     secureTextEntry={props.status}
                 />
                 <Icon name={props.name} color={"black"} size={30} />
             </View>
-            <Text>{text}</Text>
+            {/* <Text>{props.data}</Text> */}
+            <Text>{props.error}</Text>
         </View>
     );
 }
