@@ -1,6 +1,6 @@
 import { useScrollToTop } from "@react-navigation/native";
 import React, { useEffect, useState } from "react";
-import { View, Text, Image, StyleSheet, Button } from "react-native";
+import { View, Text, Image, StyleSheet, Button, TouchableOpacity } from "react-native";
 import BigButton from "../../components/button/BigButton";
 import Input from "../../components/input/input";
 import { getUserApi } from "../../api/users";
@@ -8,9 +8,10 @@ import { getUserApi } from "../../api/users";
 const Login = ({ navigation }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [errorEmail, setErrorEmail] = useState("Không được để trống email");
-  const [errorPassword, setErrorPassword] = useState("Không được để trống password");
   const [users, setUsers] = useState([]);
+  const [error, setError] = useState("");
+  const [icon, setIcon] = useState("eye-off");
+  const [status, setStatus] = useState(true);
 
   const getData = async() => {
     try {
@@ -33,6 +34,8 @@ const Login = ({ navigation }) => {
           index: 0,
           routes: [{ name: 'Main' }],
         });
+      } else {
+        setError("Email hoặc Password bị sai !")
       }
     }
     )
@@ -46,18 +49,21 @@ const Login = ({ navigation }) => {
       <Text style={styles.title}>Login</Text>
       <View>
         <Text style={styles.label}>User email</Text>
-        <Input placeholder={"Enter user email"} name={"user"} data={email} setData={setEmail} error = {errorEmail} />
+        <Input placeholder={"Enter user email"} name={"user"} data={email} setData={setEmail}/>
         <Text style={styles.label}>Password</Text>
-        <Input placeholder={"Enter user password"} name={"eye-off"} status={true} data={password} setData={setPassword} error={errorPassword} />
-        <BigButton title={"Login"}
-          onPress={() => {
-            checkUser();
-          // navigation.reset({
-          //   index: 0,
-          //   routes: [{name: 'Main'}],
-          // });
-        }}
-        />
+        <Input placeholder={"Enter user password"} name={icon} status={status} data={password} setData={setPassword} setSecureTextEntry={setStatus} setIcon={setIcon} />
+        <Text style={{ color: "red" }}>{error}</Text>
+        <TouchableOpacity>
+          <BigButton title={"Login"}
+            onPress={() => {
+              checkUser();
+              // navigation.reset({
+              //   index: 0,
+              //   routes: [{name: 'Main'}],
+              // });
+            }}
+          />
+        </TouchableOpacity>
       </View>
       <Text style={styles.note}>Forgot Your Password?</Text>
       <Text style={styles.note}

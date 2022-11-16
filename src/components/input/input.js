@@ -15,10 +15,18 @@ const Input = (props) => {
                     autoCorrect={true}
                     secureTextEntry={props.status}
                 />
-                <Icon name={props.name} color={"black"} size={30} />
+                <Icon name={props.name} color={"black"} size={30}
+                    onPress={() => {
+                        if (props.name == "eye-off") {
+                            props.setSecureTextEntry(false);
+                            props.setIcon("eye");
+                        } if (props.name == "eye") {
+                            props.setSecureTextEntry(true);
+                            props.setIcon("eye-off");
+                        }
+                    }}
+                />
             </View>
-            {/* <Text>{props.data}</Text> */}
-            <Text>{props.error}</Text>
         </View>
     );
 }
