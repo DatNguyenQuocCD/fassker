@@ -19,13 +19,13 @@ const BottomTabs = () => {
   return (
     <BottomTab.Navigator sceneContainerStyle={{backgroundColor: 'white'}}>
       <BottomTab.Screen
-        name="Home Tab"
+        name="Home"
         component={Home}
         options={() => {
           return {
             // tabBarLabel: ({focused}) => {
             //   return (
-            //     <Text style={{color: focused ? 'red' : 'black'}}>{''}</Text>
+            //     <Text style={{color: focused ? 'red' : 'black'}}>{'Home'}</Text>
             //   );
             // },
             tabBarIcon: ({ focused }) => (
@@ -37,7 +37,7 @@ const BottomTabs = () => {
       />
 
       <BottomTab.Screen
-        name="Favourite Tab"
+        name="Search"
         component={Favourite}
         options={() => {
           return {
@@ -56,7 +56,7 @@ const BottomTabs = () => {
       />
 
       <BottomTab.Screen
-        name="MyBookingTab"
+        name="New Post"
         component={MyBooking}
         options={() => {
           return {
@@ -75,7 +75,7 @@ const BottomTabs = () => {
       />
 
       <BottomTab.Screen
-        name="ChatTab"
+        name="Like"
         component={Chat}
         options={() => {
           return {
@@ -93,7 +93,7 @@ const BottomTabs = () => {
       />
 
       <BottomTab.Screen
-        name="SettingTab"
+        name="Account"
         component={Profile}
         options={() => {
           return {

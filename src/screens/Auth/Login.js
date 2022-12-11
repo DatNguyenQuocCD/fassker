@@ -56,11 +56,11 @@ const Login = ({ navigation }) => {
         <TouchableOpacity>
           <BigButton title={"Login"}
             onPress={() => {
-              checkUser();
-              // navigation.reset({
-              //   index: 0,
-              //   routes: [{name: 'Main'}],
-              // });
+              // checkUser();
+              navigation.reset({
+                index: 0,
+                routes: [{name: 'Main'}],
+              });
             }}
           />
         </TouchableOpacity>

@@ -1,6 +1,11 @@
 import axiosRequest from '.';
 
-export async function getPostsApi({ page = 1, limit = 10 }) {
-    let url = `posts?page=${page}&size=${limit}`;
-    return axiosRequest.get(url);
+export async function getPostsApi() {
+  let url = `posts`;
+  return axiosRequest.get(url);
+}
+
+export async function addPostsApi(data) {
+  let url = `posts`;
+  return axiosRequest.post(url, data);
 }

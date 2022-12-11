@@ -16,7 +16,7 @@ const styles = StyleSheet.create({
         flexDirection: "row",
         flexWrap: "wrap",
         justifyContent: "space-between",
-        padding: 15
+        padding: 15,
 
     },
     name__app: {
